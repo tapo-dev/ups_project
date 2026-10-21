@@ -33,7 +33,9 @@ Everything else (Makefiles, devcontainer, docs) is normal work.
 | `client/` | Unity client (Unity 6000.6, 2D URP template, new Input System only) |
 | `docs/` | Course assignment, protocol description, final documentation |
 
-`server/server.cpp` is a single-file skeleton grown out of the course's bonus task: `poll()` loop, per-client receive buffer split into lines (`read_lines`), `send_line`, and an empty `handle_line` that answers every line with `ERROR`. The chess protocol does not exist yet.
+`server/server.cpp` is a single-file skeleton grown out of the course's bonus task: `poll()` loop, per-client receive buffer split into lines (`read_lines`), `send_line`, and an empty `handle_line` that answers every line with `ERROR`. The chess protocol is designed in `docs/protocol.md` (with the state diagram `docs/state_diagram.drawio.png`) but not implemented yet.
+
+Documentation in `docs/` is written in English and kept short.
 
 ## Build and run
 
@@ -80,6 +82,7 @@ Summary of `docs/PozadavkyUPS.pdf`.
 - Nothing is sent while nothing happens, except an occasional ping.
 
 **Game flow**
+- Basic chess is enough (confirmed with the instructor): no castling and no en passant. A pawn reaching the last rank always becomes a queen (our choice, no piece selection).
 - A player is identified by nickname.
 - After connecting, the player is in a lobby with rooms, picks one and joins it. When the game ends, players go back to the lobby.
 - Rooms run in parallel and do not affect each other.
